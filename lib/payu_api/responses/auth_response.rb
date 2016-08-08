@@ -1,5 +1,9 @@
 module PayuAPI
   class AuthResponse < Response
+    def success?
+      http_success?
+    end
+
     def auth_token
       body[:access_token]
     end

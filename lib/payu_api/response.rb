@@ -16,25 +16,27 @@ module PayuAPI
     end
 
     def error_code
+      return unless error?
       body[:error] || status_code
     end
 
     def error_message
+      return unless error?
       body[:error_description] || status_description
     end
 
     private
 
     def http_success?
-      SUCCESS_HTTP_STATUSES.include?(http_status)
+      self.class::SUCCESS_HTTP_STATUSES.include?(http_status)
     end
 
     def http_status
-      http_response.status
+      @http_status ||= http_response.status
     end
 
     def status_success?
-      SUCCESS_STATUSES.include?(status_code)
+      self.class::SUCCESS_STATUSES.include?(status_code)
     end
 
     def status_code
@@ -50,13 +52,17 @@ module PayuAPI
     end
 
     def body
-      return unless http_response.body
+      return unless raw_body
       @body ||=
         begin
-          JSON.parse(http_response.body, symbolize_names: true)
+          JSON.parse(raw_body, symbolize_names: true)
         rescue => e
           raise InvalidResponseError, e.message
         end
+    end
+
+    def raw_body
+      @raw_body ||= http_response.body
     end
   end
 end
