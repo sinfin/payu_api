@@ -20,14 +20,25 @@ Or install it yourself as:
 
 ## Usage
 
+Get OAuth token:
+
+```ruby
+response = PayuAPI.authorize(pos_id: '300046', key: '098f6b...', sandbox: true)
+
+response.success?
+# => true
+
+response.auth_token
+# => "c8d4b7..."
+
+response.expires_in
+# => 43199
+```
+
 Create client:
 
 ```ruby
-client = PayuAPI::Client.new(
-  pos_id: '300046',
-  auth_token: 'c8d4b7ac61758704f38ed5564d8c0ae0',
-  sandbox: true
-)
+client = PayuAPI::Client.new(pos_id: '300046', auth_token: 'c8d4b7...', sandbox: true)
 ```
 
 Creating a new order:
