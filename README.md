@@ -1,5 +1,8 @@
 # PayU REST API
 
+[![Gem Version](https://badge.fury.io/rb/payu_api.svg)](https://badge.fury.io/rb/payu_api)
+[![Build Status](https://travis-ci.org/busfor/payu_api.svg?branch=master)](https://travis-ci.org/busfor/payu_api)
+
 Ruby wrapper for PayU REST API.
 
 ## Installation
