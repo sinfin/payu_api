@@ -10,3 +10,10 @@ Style/Documentation:
 
 Style/WordArray:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/MethodLength:
+  Exclude:
+    - 'test/**/*'

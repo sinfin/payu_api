@@ -9,7 +9,7 @@ module PayuAPI
 
     private
 
-    def sandbox
+    def sandbox?
       client.sandbox
     end
 

@@ -39,4 +39,14 @@ class PayuAPI::ResponseTest < Minitest::Test
     assert_equal 'ACCESS_DENIED', response.error_code
     assert_equal 'Access denied', response.error_message
   end
+
+  def test_invalid_response
+    http_response = Minitest::Mock.new
+    http_response.expect :status, 200
+    http_response.expect :body, 'invalid_json'
+
+    response = PayuAPI::Response.new(http_response: http_response)
+
+    assert_raises(PayuAPI::InvalidResponseError) { response.success? }
+  end
 end
