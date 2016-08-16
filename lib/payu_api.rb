@@ -24,7 +24,7 @@ module PayuAPI
   end
 
   def self.signature_valid?(body:, headers:, second_key:)
-    signature = BuildSignature(body: body, second_key: second_key).call
+    signature = BuildSignature.new(body: body, second_key: second_key).call
     headers['OpenPayU-Signature'] == signature
   end
 end
