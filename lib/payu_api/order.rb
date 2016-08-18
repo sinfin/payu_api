@@ -2,7 +2,7 @@ module PayuAPI
   class Order
     class << self
       def get(client:, order_id:)
-        request = ApiRequest.new(client: client, method: 'GET', url: "/api/v2_1/orders/#{order_id}")
+        request = ApiRequest.new(client, :GET, "/api/v2_1/orders/#{order_id}")
         GetResponse.new(http_response: request.call)
       end
 
