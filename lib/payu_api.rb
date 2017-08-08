@@ -13,8 +13,10 @@ require 'payu_api/responses/auth_response'
 require 'payu_api/responses/get_response'
 require 'payu_api/responses/create_response'
 require 'payu_api/responses/refund_response'
+require 'payu_api/responses/paymethods_response'
 require 'payu_api/build_signature'
 require 'payu_api/order'
+require 'payu_api/paymethods'
 require 'payu_api/client'
 
 module PayuAPI

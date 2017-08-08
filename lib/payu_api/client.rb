@@ -25,5 +25,9 @@ module PayuAPI
     def refund(order_id:, params:)
       Order.refund(client: self, order_id: order_id, params: params)
     end
+
+    def get_paymethods
+      Paymethods.get(client: self)
+    end
   end
 end
