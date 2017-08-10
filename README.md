@@ -179,6 +179,37 @@ PayuAPI.signature_valid?(
 # => true
 ```
 
+Retrieve payment methods which are enabled for pos:
+
+```ruby
+response = client.get_paymethods
+
+response.success?
+# => true
+
+response.pay_by_links
+#  => [
+#       {
+#         :value=>"m",
+#         :brandImageUrl=>"https://static.payu.com/images/mobile/logos/pbl_m.png",
+#         :name=>"mTransfer",
+#         :status=>"ENABLED"
+#       },
+#       {
+#         :value=>"m",
+#         :brandImageUrl=>"https://static.payu.com/images/mobile/logos/pbl_o.png",
+#         :name=>"Płacę z Bankiem Pekao S.A.",
+#         :status=>"ENABLED"
+#       },
+#    ]
+```
+Similarly you can use `response.pex_tokens` to get `pexTokens` and `response.card_tokens` to get `cardTokens`. In case of no results available, the result will be empty array.
+
+```ruby
+response.pex_tokens
+# => []
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/busfor/payu_api. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
