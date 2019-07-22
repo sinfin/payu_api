@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov', '~> 0.12'
   spec.add_development_dependency 'rubocop', '~> 0.42'
   spec.add_development_dependency 'byebug'
+  spec.add_development_dependency 'faraday-detailed_logger'
 end

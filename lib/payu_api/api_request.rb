@@ -9,6 +9,10 @@ module PayuAPI
 
     private
 
+    def logger
+      client.logger
+    end
+
     def sandbox?
       client.sandbox
     end
