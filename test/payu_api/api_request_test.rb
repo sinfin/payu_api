@@ -15,6 +15,7 @@ class PayuAPI::ApiRequestTest < Minitest::Test
     client = Minitest::Mock.new
     client.expect :sandbox, false
     client.expect :auth_token, 'abcdef'
+    client.expect :logger, nil
 
     params = { p1: 1, p2: 2 }
     request = PayuAPI::ApiRequest.new(client, :POST, '/make/action', params)
@@ -37,6 +38,7 @@ class PayuAPI::ApiRequestTest < Minitest::Test
     client = Minitest::Mock.new
     client.expect :sandbox, false
     client.expect :auth_token, 'abcdef'
+    client.expect :logger, nil
 
     request = PayuAPI::ApiRequest.new(client, :POST, '/make/action')
 
@@ -56,6 +58,7 @@ class PayuAPI::ApiRequestTest < Minitest::Test
     client = Minitest::Mock.new
     client.expect :sandbox, true
     client.expect :auth_token, 'abcdef'
+    client.expect :logger, nil
 
     request = PayuAPI::ApiRequest.new(client, :POST, '/make/action')
     response = request.call
