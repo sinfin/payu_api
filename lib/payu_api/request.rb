@@ -5,7 +5,11 @@ module PayuAPI
 
     # rubocop:disable Metrics/AbcSize
     def call
-      connection = Faraday::Connection.new(api_url)
+      connection = Faraday.new(url: api_url) do |builder|
+        builder.response(:detailed_logger, logger) if logger
+        builder.adapter Faraday.default_adapter
+      end
+
       connection.public_send(method.to_s.downcase) do |request|
         request.url url
         request.body = body if body
@@ -40,6 +44,10 @@ module PayuAPI
     end
 
     def body
+      nil
+    end
+
+    def logger
       nil
     end
   end

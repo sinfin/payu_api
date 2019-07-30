@@ -5,6 +5,7 @@ module PayuAPI
     option :pos_id
     option :auth_token
     option :sandbox, default: proc { false }
+    option :logger, default: proc { nil }
 
     def create_order(order_params)
       Order.create(client: self, params: order_params)

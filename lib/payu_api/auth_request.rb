@@ -4,6 +4,7 @@ module PayuAPI
 
     option :pos_id
     option :key
+    option :logger
     option :sandbox, default: proc { false }
 
     private
