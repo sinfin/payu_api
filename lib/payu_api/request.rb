@@ -48,7 +48,7 @@ module PayuAPI
     end
 
     def logger
-      raise NotImplementedError
+      nil
     end
   end
 end
