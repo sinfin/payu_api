@@ -27,8 +27,8 @@ module PayuAPI
       Order.refund(client: self, order_id: order_id, params: params)
     end
 
-    def get_paymethods
-      Paymethods.get(client: self)
+    def get_paymethods(lang: nil)
+      Paymethods.get(client: self, lang: lang)
     end
   end
 end
